@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Conversor de medidas</string>
+    <string name="title">Conversor de medidas</string>
+    <string name="reglas">Elija un tipo de conversión</string>
+    <string name="temperatura">Temperatura</string>
+    <string name="distancia">Distancia</string>
+    <string name="Peso">Peso</string>
+    <string name="ingresarcantidad">Ingrese una cantidad</string>
+
+
+    <string-array name="pesos_array">
+        <item>Kilogramos</item>
+        <item>Libras</item>
+        <item>Onzas</item>
+        <item>Toneladas</item>
+    </string-array>
+</resources>
