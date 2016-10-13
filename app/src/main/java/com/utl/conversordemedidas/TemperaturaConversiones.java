@@ -4,29 +4,29 @@ package com.utl.conversordemedidas;
  * Created by noealcantar on 16-10-12.
  */
 
-public class PesosConversiones {
+public class TemperaturaConversiones {
 
-    private static String[] pesos_array = {"Kilogramos",
-                "Libras",
-                "Onzas",
-                "Toneladas"};
+    private static String[] temperaturas_array = {"Centígrados",
+            "Fahrenheit",
+            "Kelvin",
+            "Rankine"};
 
 
-    public String realizaConversion(String pesoFrom, String pesoTo, Double peso){
+    public String realizaConversion(String tempFrom, String tempTo, Double temp){
         String res = "";
 
-        switch (pesoFrom){
-            case "Kilogramos":
-                res = KilogramosA(pesoTo, peso);
+        switch (tempFrom){
+            case "Centígrados":
+                res = CentigradosA(tempTo, temp);
                 break;
-            case "Libras":
-                res = LibrasA(pesoTo, peso);
+            case "Fahrenheit":
+                res = FahrenheitA(tempTo, temp);
                 break;
-            case "Onzas":
-                res = OnzasA(pesoTo, peso);
+            case "Kelvin":
+                res = KelvinA(tempTo, temp);
                 break;
-            case "Toneladas":
-                res = ToneladasA(pesoTo, peso);
+            case "Rankine":
+                res = RankineA(tempTo, temp);
                 break;
             default:
                 res = "La conversión no ha podido ser realizada";
@@ -37,22 +37,22 @@ public class PesosConversiones {
     }
 
     //Realiza todas las conversiones de kilogramos a otra medida
-    public String KilogramosA(String pesoTo, Double peso){
+    public String CentigradosA(String tempTo, Double temp){
         Double result = 0.0;
         String res = "";
 
-        switch (pesoTo){
-            case "Kilogramos":
-                result = peso;
+        switch (tempTo){
+            case "Centígrados":
+                result = temp;
                 break;
-            case "Libras":
-                result = peso * 2.20462;
+            case "Fahrenheit":
+                result = (temp * 9/5) + 32;
                 break;
-            case "Onzas":
-                result = peso * 35.274;
+            case "Kelvin":
+                result = temp + 273.15;
                 break;
-            case "Toneladas":
-                result = peso * 0.001;
+            case "Rankine":
+                result = (temp + 273.15) * 9/5 ;
                 break;
             default:
                 res = "La conversión no ha podido ser realizada";
@@ -60,29 +60,29 @@ public class PesosConversiones {
         }
 
         //2 digitos
-        result = round(result, 4);
+        result = round(result, 8);
         res = String.valueOf(result);
 
         return res;
     }
 
     //Realiza todas las conversiones de libras a otra medida
-    public String LibrasA(String pesoTo, Double peso){
+    public String FahrenheitA(String tempTo, Double temp){
         Double result = 0.0;
         String res = "";
 
-        switch (pesoTo){
-            case "Kilogramos":
-                result = peso * 0.453592;
+        switch (tempTo){
+            case "Centígrados":
+                result = (temp - 32) * 5/9;
                 break;
-            case "Libras":
-                result = peso;
+            case "Fahrenheit":
+                result = temp;
                 break;
-            case "Onzas":
-                result = peso * 16;
+            case "Kelvin":
+                result = (temp + 459.67) * 5/9;
                 break;
-            case "Toneladas":
-                result = peso * 0.000453592;
+            case "Rankine":
+                result = temp + 459.67;
                 break;
             default:
                 res = "La conversión no ha podido ser realizada";
@@ -97,22 +97,22 @@ public class PesosConversiones {
     }
 
     //Realiza todas las conversiones de onzas a otra medida
-    public String OnzasA(String pesoTo, Double peso){
+    public String KelvinA(String tempTo, Double temp){
         Double result = 0.0;
         String res = "";
 
-        switch (pesoTo){
-            case "Kilogramos":
-                result = peso * 0.0283495;
+        switch (tempTo){
+            case "Centígrados":
+                result = temp - 273.15;
                 break;
-            case "Libras":
-                result = peso * 0.0625;
+            case "Fahrenheit":
+                result = (temp * 9/5) - 459.67;
                 break;
-            case "Onzas":
-                result = peso;
+            case "Kelvin":
+                result = temp;
                 break;
-            case "Toneladas":
-                result = peso * 2.835E-5;
+            case "Rankine":
+                result = temp * 9/5;
                 break;
             default:
                 res = "La conversión no ha podido ser realizada";
@@ -127,22 +127,22 @@ public class PesosConversiones {
     }
 
     //Realiza todas las conversiones de onzas a otra medida
-    public String ToneladasA(String pesoTo, Double peso){
+    public String RankineA(String tempTo, Double temp){
         Double result = 0.0;
         String res = "";
 
-        switch (pesoTo){
-            case "Kilogramos":
-                result = peso * 1000;
+        switch (tempTo){
+            case "Centígrados":
+                result = (temp - 491.67) * 5/9;
                 break;
-            case "Libras":
-                result = peso * 2204.62;
+            case "Fahrenheit":
+                result = temp - 459.67;
                 break;
-            case "Onzas":
-                result = peso * 35274;
+            case "Kelvin":
+                result = temp * 5/9;
                 break;
-            case "Toneladas":
-                result = peso;
+            case "Rankine":
+                result = temp;
                 break;
             default:
                 res = "La conversión no ha podido ser realizada";
@@ -165,5 +165,4 @@ public class PesosConversiones {
         long tmp = Math.round(value);
         return (double) tmp / factor;
     }
-
 }

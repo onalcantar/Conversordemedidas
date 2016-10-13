@@ -4,29 +4,28 @@ package com.utl.conversordemedidas;
  * Created by noealcantar on 16-10-12.
  */
 
-public class PesosConversiones {
+public class DistanciaConversiones {
+    private static String[] temperaturas_array = {"Metros",
+            "Kilometros",
+            "Millas",
+            "Pulgadas"};
 
-    private static String[] pesos_array = {"Kilogramos",
-                "Libras",
-                "Onzas",
-                "Toneladas"};
 
-
-    public String realizaConversion(String pesoFrom, String pesoTo, Double peso){
+    public String realizaConversion(String distFrom, String distTo, Double dist){
         String res = "";
 
-        switch (pesoFrom){
-            case "Kilogramos":
-                res = KilogramosA(pesoTo, peso);
+        switch (distFrom){
+            case "Metros":
+                res = MetrosA(distTo, dist);
                 break;
-            case "Libras":
-                res = LibrasA(pesoTo, peso);
+            case "Kilometros":
+                res = KilometrosA(distTo, dist);
                 break;
-            case "Onzas":
-                res = OnzasA(pesoTo, peso);
+            case "Millas":
+                res = MillasA(distTo, dist);
                 break;
-            case "Toneladas":
-                res = ToneladasA(pesoTo, peso);
+            case "Pulgadas":
+                res = PulgadasA(distTo, dist);
                 break;
             default:
                 res = "La conversión no ha podido ser realizada";
@@ -37,22 +36,22 @@ public class PesosConversiones {
     }
 
     //Realiza todas las conversiones de kilogramos a otra medida
-    public String KilogramosA(String pesoTo, Double peso){
+    public String MetrosA(String distTo, Double dist){
         Double result = 0.0;
         String res = "";
 
-        switch (pesoTo){
-            case "Kilogramos":
-                result = peso;
+        switch (distTo){
+            case "Metros":
+                result = dist;
                 break;
-            case "Libras":
-                result = peso * 2.20462;
+            case "Kilometros":
+                result = dist * 0.001;
                 break;
-            case "Onzas":
-                result = peso * 35.274;
+            case "Millas":
+                result = dist * 0.000621371;
                 break;
-            case "Toneladas":
-                result = peso * 0.001;
+            case "Pulgadas":
+                result = dist * 39.3701;
                 break;
             default:
                 res = "La conversión no ha podido ser realizada";
@@ -60,29 +59,29 @@ public class PesosConversiones {
         }
 
         //2 digitos
-        result = round(result, 4);
+        result = round(result, 8);
         res = String.valueOf(result);
 
         return res;
     }
 
     //Realiza todas las conversiones de libras a otra medida
-    public String LibrasA(String pesoTo, Double peso){
+    public String KilometrosA(String distTo, Double dist){
         Double result = 0.0;
         String res = "";
 
-        switch (pesoTo){
-            case "Kilogramos":
-                result = peso * 0.453592;
+        switch (distTo){
+            case "Metros":
+                result = dist * 1000;
                 break;
-            case "Libras":
-                result = peso;
+            case "Kilometros":
+                result = dist;
                 break;
-            case "Onzas":
-                result = peso * 16;
+            case "Millas":
+                result = dist * 0.621371;
                 break;
-            case "Toneladas":
-                result = peso * 0.000453592;
+            case "Pulgadas":
+                result = dist * 39370.1;
                 break;
             default:
                 res = "La conversión no ha podido ser realizada";
@@ -97,22 +96,22 @@ public class PesosConversiones {
     }
 
     //Realiza todas las conversiones de onzas a otra medida
-    public String OnzasA(String pesoTo, Double peso){
+    public String MillasA(String distTo, Double dist){
         Double result = 0.0;
         String res = "";
 
-        switch (pesoTo){
-            case "Kilogramos":
-                result = peso * 0.0283495;
+        switch (distTo){
+            case "Metros":
+                result = dist * 1609.34;
                 break;
-            case "Libras":
-                result = peso * 0.0625;
+            case "Kilometros":
+                result = dist * 1.60934;
                 break;
-            case "Onzas":
-                result = peso;
+            case "Millas":
+                result = dist;
                 break;
-            case "Toneladas":
-                result = peso * 2.835E-5;
+            case "Pulgadas":
+                result = dist * 63360;
                 break;
             default:
                 res = "La conversión no ha podido ser realizada";
@@ -127,22 +126,22 @@ public class PesosConversiones {
     }
 
     //Realiza todas las conversiones de onzas a otra medida
-    public String ToneladasA(String pesoTo, Double peso){
+    public String PulgadasA(String distTo, Double dist){
         Double result = 0.0;
         String res = "";
 
-        switch (pesoTo){
-            case "Kilogramos":
-                result = peso * 1000;
+        switch (distTo){
+            case "Metros":
+                result = dist * 0.0254;
                 break;
-            case "Libras":
-                result = peso * 2204.62;
+            case "Kilometros":
+                result = dist * 2.54E-5;
                 break;
-            case "Onzas":
-                result = peso * 35274;
+            case "Millas":
+                result = dist * 1.5783E-5;
                 break;
-            case "Toneladas":
-                result = peso;
+            case "Pulgadas":
+                result = dist;
                 break;
             default:
                 res = "La conversión no ha podido ser realizada";
@@ -165,5 +164,4 @@ public class PesosConversiones {
         long tmp = Math.round(value);
         return (double) tmp / factor;
     }
-
 }
